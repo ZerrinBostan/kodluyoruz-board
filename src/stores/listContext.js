@@ -5,37 +5,23 @@ const ListContext = React.createContext();
 
 class ListProvider extends Component {
   state = {
-    createdList: false,
-    text: '',
-    degree: 0,
+    list: [],
   };
 
-  isCreatedList = () => {
-    this.setState({ createdList: true });
-  };
-
-  setTextValue = (isText) => {
-    this.setState({ text: isText });
-  };
-
-  setDegreeValue = (isDegree) => {
-    this.setState({ degree: isDegree });
+  setList = (list) => {
+    this.setState({ list });
   };
 
   render() {
     const { children } = this.props;
-    const { createdList, text, degree} = this.state;
-    const { isCreatedList, setTextValue , setDegreeValue} = this;
+    const { list } = this.state;
+    const { setList } = this;
 
     return (
       <ListContext.Provider
         value={{
-          createdList,
-          text,
-          degree,
-          isCreatedList,
-          setTextValue,
-          setDegreeValue,
+          list,
+          setList,
         }}
       >
         {children}

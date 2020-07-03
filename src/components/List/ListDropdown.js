@@ -3,29 +3,38 @@ import Icon from '../Icon';
 import listContext from '../../stores/listContext';
 
 const ListDropdown = () => {
-  const {
-    isCreatedList,
-    setTextValue,
-    setDegreeValue,
-    text,
-    degree,
-    createdList,
-  } = useContext(listContext);
+  const { list, setList } = useContext(listContext);
 
   const [isShow, setShow] = useState(true);
+  const [text, setText] = useState('');
+  const [degree, setDegree] = useState(0);
+  const [description, setDescription] = useState('');
 
   const handleOnClick = (e) => {
+    const listItem = {
+      text,
+      degree,
+      description,
+    };
+
+    const tempList = [...list, listItem];
+    setList(tempList);
+  };
+
+  const handleToogleDropdown = () => {
     setShow(!isShow);
-    isCreatedList(true);
-    e.preventDefault();
   };
 
   const handleChangeText = (e) => {
-    setTextValue(e.target.value);
+    setText(e.target.value);
   };
 
   const handleChangeDegree = (e) => {
-    setDegreeValue(e.target.value);
+    setDegree(e.target.value);
+  };
+
+  const handleChangeDescription = (e) => {
+    setDescription(e.target.value);
   };
 
   return (
@@ -33,7 +42,7 @@ const ListDropdown = () => {
       <div
         type="button"
         className="list-dropdown__button"
-        onClick={handleOnClick}
+        onClick={handleToogleDropdown}
       >
         <span>Liste Oluştur</span>
         <Icon icon="plus" className="icon icon-plus" size={16} />
@@ -60,6 +69,18 @@ const ListDropdown = () => {
               className="list-dropdown__degree--input"
               value={degree}
               onChange={handleChangeDegree}
+            />
+          </div>
+          <div className="list-dropdown__textarea">
+            <span className="list-dropdown__degree--text">
+              Açıklamanızı giriniz.
+            </span>
+            <textarea
+              name="description"
+              rows="4"
+              cols="50"
+              className="list-add-content__description"
+              onChange={handleChangeDescription}
             />
           </div>
           <div className="list-dropdown__confirmation-content">

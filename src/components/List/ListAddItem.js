@@ -1,11 +1,10 @@
 import React, { useContext } from 'react';
 import UserContext from '../../stores/userContext';
-import listContext from '../../stores/listContext';
 import Icon from '../Icon';
+import PropTypes from 'prop-types';
 
-const ListAddItem = () => {
+const ListAddItem = ({text, degree, description}) => {
   const user = useContext(UserContext);
-  const { text, degree } = useContext(listContext);
   return (
     <div className="list-add-content">
       <div className="list-add-content__header">
@@ -18,6 +17,7 @@ const ListAddItem = () => {
           rows="4"
           cols="50"
           className="list-add-content__description"
+          value={description}
         />
       </div>
       <p className="list-add-content__header">Etiketler</p>
@@ -28,4 +28,11 @@ const ListAddItem = () => {
     </div>
   );
 };
+
+ListAddItem.propTypes = {
+  text: PropTypes.string.isRequired,
+  degree: PropTypes.func.isRequired,
+  description: PropTypes.string.isRequired, 
+};
+
 export default ListAddItem;

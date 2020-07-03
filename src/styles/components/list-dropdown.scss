@@ -29,15 +29,30 @@
     position: absolute;
     top: 46px;
     left: 0;
-    width: 218px;
+    width: 262px;
     background: $acapulco;
     border: 2px solid $emperor;
     border-radius: 4px;
     height: auto;
     padding: 15px 5px;
 
+    .list-dropdown__textarea  {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-bottom: 15px;
+
+      .list-add-content__description {
+        width: 250px;
+      }
+
+      .span {
+        align-items: flex-start;
+      }
+    }
+
     .list-dropdown__context--input {
-      width: 203px;
+      width: 248px;
       height: 19px;
       border: 1px solid $emperor;
       border-radius: 4px;
@@ -60,7 +75,7 @@
       }
 
       &--input {
-        width: 28px;
+        width: 42px;
         height: 30px;
         border: 1px solid $emperor;
         border-radius: 4px;
