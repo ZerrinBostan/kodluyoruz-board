@@ -1,0 +1,43 @@
+.list-add-content {
+  width: 280px;
+  background: $acapulco;
+  border: 2px solid $emperor;
+  border-radius: 4px;
+  height: auto;
+  padding: 15px 5px;
+
+  &__header {
+    width: 261px;
+    height: 30px;
+    background: $white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: 14px;
+    margin-bottom: 15px;
+    color: $emperor;
+  }
+
+  &__description {
+    width: 265px;
+    outline: none;
+    padding: 6px;
+  }
+
+  &__header,
+  &__description {
+    border: 1px solid $emperor;
+    border-radius: 4px;
+  }
+
+  .list-degree-wrapper{
+    display: flex;
+    align-items: center;
+
+    span {
+      font-size: 15px;
+    }
+  }
+}
