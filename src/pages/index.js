@@ -18,22 +18,44 @@ const Home = () => {
         ))}
       </div>
       <div className="board-wrapper__item">
-        <ListDropdown />
+        {list.length === 0 && <ListDropdown />}
+        {list.map((item) => (
+          <ListAddItem
+            text={item.text}
+            degree={item.degree}
+            description={item.description}
+          />
+        ))}
       </div>
       <div className="board-wrapper__item">
-        <ListDropdown />
+        {list.length === 0 && <ListDropdown />}
+        {list.map((item) => (
+          <ListAddItem
+            text={item.text}
+            degree={item.degree}
+            description={item.description}
+          />
+        ))}
       </div>
       <div className="board-wrapper__item">
-        <ListDropdown />
+        {list.length === 0 && <ListDropdown />}
+        {list.map((item) => (
+          <ListAddItem
+            text={item.text}
+            degree={item.degree}
+            description={item.description}
+          />
+        ))}
       </div>
       <div className="board-wrapper__item">
-        <ListDropdown />
-      </div>
-      <div className="board-wrapper__item">
-        <ListDropdown />
-      </div>
-      <div className="board-wrapper__item">
-        <ListDropdown />
+        {list.length === 0 && <ListDropdown />}
+        {list.map((item) => (
+          <ListAddItem
+            text={item.text}
+            degree={item.degree}
+            description={item.description}
+          />
+        ))}
       </div>
     </div>
   );

@@ -9,10 +9,7 @@
     flex-direction: column;
     align-items: center;
     border: 6px solid $carnation;
-
-    &:first-child {
-      justify-content: space-around;
-    }
+    justify-content: space-around;
   }
 }
 

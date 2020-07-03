@@ -18,6 +18,7 @@ const ListAddItem = ({text, degree, description}) => {
           cols="50"
           className="list-add-content__description"
           value={description}
+          readOnly
         />
       </div>
       <p className="list-add-content__header">Etiketler</p>
