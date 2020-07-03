@@ -12,31 +12,21 @@ const Home = () => {
         <ListAddItem />
       </div>
       <div className="board-wrapper__item">
-        <ListAddItem />
         <ListDropdown />
       </div>
       <div className="board-wrapper__item">
-        <ListAddItem />
         <ListDropdown />
       </div>
       <div className="board-wrapper__item">
-        <ListAddItem />
         <ListDropdown />
       </div>
       <div className="board-wrapper__item">
-        <ListAddItem />
         <ListDropdown />
       </div>
       <div className="board-wrapper__item">
-        <ListAddItem />
         <ListDropdown />
       </div>
       <div className="board-wrapper__item">
-        <ListAddItem />
-        <ListDropdown />
-      </div>
-      <div className="board-wrapper__item">
-        <ListAddItem />
         <ListDropdown />
       </div>
     </div>
