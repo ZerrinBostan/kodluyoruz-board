@@ -5,7 +5,7 @@ import Icon from '../Icon';
 
 const ListAddItem = () => {
   const user = useContext(UserContext);
-  const { isCreatedList, text, degree } = useContext(listContext);
+  const {text, degree } = useContext(listContext);
   return (
     <div className="list-add-content">
       <div className="list-add-content__header">

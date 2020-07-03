@@ -9,9 +9,10 @@ const ListDropdown = () => {
     setDegreeValue,
     text,
     degree,
+    createdList,
   } = useContext(listContext);
 
-  const [isShow, setShow] = useState(false);
+  const [isShow, setShow] = useState(true);
 
   const handleOnClick = (e) => {
     setShow(!isShow);
