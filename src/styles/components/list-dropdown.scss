@@ -1,0 +1,109 @@
+.list-dropdown {
+  position: relative;
+
+  &__button {
+    width: 145px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 8px;
+    padding-right: 8px;
+    border: 2px solid $emperor;
+    border-radius: 4px;
+    background: $white;
+    cursor: pointer;
+
+    .icon-plus {
+      background: transparent;
+      color: $carnation;
+    }
+
+    span {
+      font-size: 14px;
+      margin-bottom: 3px;
+    }
+  }
+
+  &__content {
+    position: absolute;
+    top: 46px;
+    left: 0;
+    width: 218px;
+    background: $acapulco;
+    border: 2px solid $emperor;
+    border-radius: 4px;
+    height: auto;
+    padding: 15px 5px;
+
+    .list-dropdown__context--input {
+      width: 203px;
+      height: 19px;
+      border: 1px solid $emperor;
+      border-radius: 4px;
+      outline: none;
+      margin-bottom: 15px;
+      padding: 6px;
+    }
+
+    .list-dropdown__degree {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+
+      &--text {
+        font-size: 14px;
+        color: $emperor;
+        font-weight: 600;
+        margin-bottom: 3px;
+      }
+
+      &--input {
+        width: 28px;
+        height: 30px;
+        border: 1px solid $emperor;
+        border-radius: 4px;
+        outline: none;
+        cursor: pointer;
+      }
+    }
+
+    .list-dropdown__confirmation-content {
+      width: 100%;
+      justify-content: flex-end;
+      display: flex;
+
+      .list-dropdown__confirmation {
+        width: 116px;
+        height: 30px;
+        border: 1px solid $emperor;
+        border-radius: 4px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        &:hover {
+          background: $burntSienna;
+
+          span {
+            color: $white;
+          }
+          .icon-chevrons-down {
+            color: $gunPowder;
+          }
+        }
+        span {
+          font-size: 14px;
+          margin-bottom: 3px;
+          color: $emperor;
+        }
+
+        .icon-chevrons-down {
+          color: $carnation;
+        }
+      }
+    }
+  }
+}
