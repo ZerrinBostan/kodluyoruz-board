@@ -2,25 +2,22 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import Home from './pages/index';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import reducers from './stores/combineReducer';
 
 import './styles/index.scss';
 
-import { UserProvider } from './stores/userContext';
-import { ListProvider } from './stores/listContext';
-
 function App() {
-  const user = { fullName: 'Zerrin-Bostan', loggedIn: true };
-
+  const store = createStore(reducers)
   return (
     <Router>
       <Switch>
-        <UserProvider value={user}>
-          <ListProvider>
-            <Route exact path="/">
-              <Home />
-            </Route>
-          </ListProvider>
-        </UserProvider>
+        <Provider store={store}>
+          <Route exact path="/">
+            <Home />
+          </Route>
+        </Provider>
       </Switch>
     </Router>
   );
