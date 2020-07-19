@@ -1,0 +1,7 @@
+[
+    { "userId" : 1, "value": "category1", "label": "Kategori 1"},
+    { "userId" : 2, "value": "category2", "label": "Kategori 2" },
+    { "userId" : 3, "value": "category3", "label": "Kategori 3" },
+    { "userId" : 4, "value": "category4", "label": "Kategori 4" },
+    { "userId" : 5, "value": "category5", "label": "Kategori 5" }
+]
