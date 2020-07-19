@@ -1,5 +1,7 @@
 .list-dropdown {
   position: relative;
+  width: 100%;
+  margin-top: 30px;
 
   &__button {
     width: 145px;
@@ -7,36 +9,38 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background: $white;
+    border: 2px solid $curiousBlue;
+    border-radius: 4px;
     padding-left: 8px;
     padding-right: 8px;
-    border: 2px solid $emperor;
-    border-radius: 4px;
-    background: $white;
     cursor: pointer;
 
     .icon-plus {
+      color: $aluminiumapprox;
       background: transparent;
-      color: $carnation;
     }
 
     span {
       font-size: 14px;
+      text-transform: uppercase;
       margin-bottom: 3px;
     }
   }
 
   &__content {
     position: absolute;
+    width: 262px;
+    height: auto;
     top: 46px;
     left: 0;
-    width: 262px;
-    background: $acapulco;
-    border: 2px solid $emperor;
+    background: $shark;
+    border: 2px solid $tuna;
     border-radius: 4px;
-    height: auto;
     padding: 15px 5px;
+    z-index: 1;
 
-    .list-dropdown__textarea  {
+    .list-dropdown__textarea {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -53,7 +57,7 @@
 
     .list-dropdown__context--input {
       width: 248px;
-      height: 19px;
+      height: 24px;
       border: 1px solid $emperor;
       border-radius: 4px;
       outline: none;
@@ -68,19 +72,21 @@
       margin-bottom: 15px;
 
       &--text {
-        font-size: 14px;
         color: $emperor;
-        font-weight: 600;
+        font-size: 14px;
+        font-weight: 600;       
         margin-bottom: 3px;
       }
 
       &--input {
-        width: 42px;
-        height: 30px;
+        width: 100%;
+        height: 24px;
         border: 1px solid $emperor;
         border-radius: 4px;
+        padding: 6px 6px 6px 2px;
         outline: none;
         cursor: pointer;
+        overflow: hidden;
       }
     }
 
@@ -90,15 +96,17 @@
       display: flex;
 
       .list-dropdown__confirmation {
-        width: 116px;
-        height: 30px;
-        border: 1px solid $emperor;
-        border-radius: 4px;
-        cursor: pointer;
         display: flex;
         justify-content: space-around;
         align-items: center;
-
+        width: 190px;
+        height: 30px;
+        color: $white;
+        margin-top: 14px;
+        border: 1px solid $white;
+        border-radius: 4px;
+        cursor: pointer;
+      
         &:hover {
           background: $burntSienna;
 
@@ -109,10 +117,11 @@
             color: $gunPowder;
           }
         }
+s
         span {
           font-size: 14px;
           margin-bottom: 3px;
-          color: $emperor;
+          color: $white;
         }
 
         .icon-chevrons-down {

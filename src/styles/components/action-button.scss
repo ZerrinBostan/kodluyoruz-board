@@ -1,0 +1,47 @@
+.action-button {
+  width: 145px;
+  height: 29px;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 700;
+  color: $black;
+  background-color: $white;
+  margin: 5px;
+  text-align: center;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.5s;
+
+  &:hover {
+    span {
+      padding-right: 25px;
+
+      &::after {
+        opacity: 1;
+        right: 0;
+      }
+    }
+  }
+
+  span {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    transition: 0.5s;
+
+    &::after {
+      content: '\00bb';
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      right: -20px;
+      transition: 0.5s;
+    }
+  }
+
+  &-column {
+    width: 100%;
+    margin-top: 20px;
+  }
+}

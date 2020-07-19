@@ -1,0 +1,31 @@
+.navbar {
+  position: sticky;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-image: linear-gradient(to left, $black, $shark);
+  padding: 15px;
+  top: 0;
+  z-index: 1;
+  
+  &--span {
+    font-weight: 700;
+    font-size: 25px;
+    color: $white;
+  }
+
+
+  .buttons-wrapper {
+    .list-dropdown__content {
+      left: auto;
+      right: 18px;
+      margin-top: 19px;
+      width: 262px;
+      padding: 15px 18px;
+    }
+
+    .active {
+      background: $coral;
+    }
+  }
+}

@@ -1,34 +1,51 @@
 .list-add-content {
   width: 280px;
-  background: $acapulco;
+  height: auto;
+  background: $curiousBlue;
+  padding: 15px 5px;
+  margin-top: 50px;
   border: 2px solid $emperor;
   border-radius: 4px;
-  height: auto;
-  padding: 15px 5px;
-
+  
   &__header {
-    width: 261px;
-    height: 30px;
-    background: $white;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 261px;
+    height: 30px;
+    color: $white;
+    font-size: 14px;
+    background: $shark;
     padding-left: 8px;
     padding-right: 8px;
-    font-size: 14px;
     margin-bottom: 15px;
-    color: $emperor;
+   
+
+    &--task {
+      display: flex;
+      align-items: center;
+
+      svg:first-child {
+        margin-right: 12px;
+        cursor: pointer;
+      }
+
+      span {
+        margin-right: 12px;
+      }
+    }
   }
 
   &__description {
     width: 265px;
-    outline: none;
     padding: 6px;
+    resize: none;
+    outline: none;
   }
 
   &__header,
   &__description {
-    border: 1px solid $emperor;
+    border: 1px solid $shark;
     border-radius: 4px;
   }
 
