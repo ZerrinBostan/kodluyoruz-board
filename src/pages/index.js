@@ -4,8 +4,8 @@ import { ListItem, CategoryAddItem, TaskAddItem, Button } from '../components';
 
 class Home extends PureComponent {
   state = {
-    listDropdownShow: true,
-    columnDropdownShow: true,
+    listDropdownShow: false,
+    columnDropdownShow: false,
   };
 
   handleToogleDropdown = () => {
@@ -28,16 +28,16 @@ class Home extends PureComponent {
             <Button
               text="sütun ekle"
               callback={handleColumnToogleDropdown}
-              className={`action-button ${!columnDropdownShow && 'active'}`}
+              className={`action-button ${columnDropdownShow && 'active'}`}
             />
-            <CategoryAddItem isShow={columnDropdownShow} />
+            <CategoryAddItem isShow={columnDropdownShow} handleColumnToogleDropdown={handleColumnToogleDropdown} />
             <Button
               text="kart ekle"
               callback={handleToogleDropdown}
-              className={`action-button ${!listDropdownShow && 'active'}`}
+              className={`action-button ${listDropdownShow && 'active'}`}
             />
             {categories.length > 0 && (
-              <TaskAddItem options={categories} isShow={listDropdownShow} />
+              <TaskAddItem options={categories} isShow={listDropdownShow} handleToogleDropdown= {handleToogleDropdown} />
             )}
           </div>
         </navbar>

@@ -31,7 +31,7 @@ class TaskAddItem extends PureComponent {
   };
 
   handleCardCreate = (e) => {
-    const { cardAdd } = this.props;
+    const { cardAdd, handleToogleDropdown} = this.props;
     const { title, degree, description, selectedOption } = this.state;
 
     e.preventDefault();
@@ -43,6 +43,8 @@ class TaskAddItem extends PureComponent {
       categoryId: selectedOption.value,
     });
     this.setState({ title: '', degree: '', description: '' });
+
+    handleToogleDropdown();
   };
 
   render() {
@@ -58,7 +60,7 @@ class TaskAddItem extends PureComponent {
 
     return (
       <>
-        {!isShow && (
+        {isShow && (
           <Card>
             <input
               type="text"

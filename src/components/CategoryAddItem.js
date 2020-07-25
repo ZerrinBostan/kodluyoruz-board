@@ -15,12 +15,14 @@ class CategoryAddItem extends PureComponent {
   };
 
   handleCategoryCreate = (e) => {
-    const { categoryAdd } = this.props;
+    const { categoryAdd, handleColumnToogleDropdown } = this.props;
     const { category } = this.state;
 
     e.preventDefault();
     categoryAdd({ id: getRandomId(), title: category });
     this.setState({ category: '', degree: '', description: '' });
+    
+    handleColumnToogleDropdown();
   };
 
   render() {
@@ -29,7 +31,7 @@ class CategoryAddItem extends PureComponent {
     const { handleCategoryChange, handleCategoryCreate } = this;
     return (
       <>
-        {!isShow && (
+        {isShow && (
           <Card>
             <input
               type="text"
