@@ -1,88 +1,85 @@
-import React, { useState } from 'react';
+import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
+import { ListItem, CategoryAddItem, TaskAddItem, Button } from '../components';
 
-import ListDropdown from '../components/List/ListDropdown';
-import ListItem from '../components/List/ListItem';
-import columnData from '../components/temp-column.json';
-import optionData from '../components/temp-todo-category.json';
-
-const Home = () => {
-  const [columnItem, setColumnItem] = useState(columnData);
-  const [listDropdownShow, setListDropdownShow] = useState(true);
-  const [columnDropdownShow, setColumnDropdownShow] = useState(true);
-
-  const setList = (columnData) => {
-    setColumnItem(columnData);
+class Home extends PureComponent {
+  state = {
+    listDropdownShow: true,
+    columnDropdownShow: true,
   };
 
-  const handleToogleDropdown = () => {
-    setListDropdownShow(!listDropdownShow);
+  handleToogleDropdown = () => {
+    this.setState({ listDropdownShow: !this.state.listDropdownShow });
   };
 
-  const handleColumnToogleDropdown = () => {
-    setColumnDropdownShow(!columnDropdownShow);
+  handleColumnToogleDropdown = () => {
+    this.setState({ columnDropdownShow: !this.state.columnDropdownShow });
   };
 
-  return (
-    <>
-      <navbar className="navbar">
-        <span className="navbar--span">TODO BOARD</span>
-        <div className="buttons-wrapper">
-          <button
-            type="button"
-            className={`action-button ${!columnDropdownShow && 'active'}`}
-            onClick={handleColumnToogleDropdown}
-          >
-            sütun ekle
-          </button>
-          <ListDropdown
-            setList={setList}
-            isShow={columnDropdownShow}
-            columnDropdown
-          />
-          <button
-            type="button"
-            className={`action-button ${!listDropdownShow && 'active'}`}
-            onClick={handleToogleDropdown}
-          >
-            kart ekle
-          </button>
-          <ListDropdown
-            setList={setList}
-            isShow={listDropdownShow}
-            options={optionData}
-          />
-        </div>
-      </navbar>
-      <div className="board-wrapper">
-        {columnItem.map((columItem) => (
-          <div className="board-wrapper__item" key={columItem.id}>
-            <span
-              className="board-wrapper__item--text"
-              key={columItem.taskItem?.taskId}
-            >
-              {columItem?.title}
-            </span>
-            {columItem.task.map((taskItem) => (
-              <>
-                <ListItem
-                  data={taskItem}
-                  key={taskItem.taskId}
-                  userName={columItem.userName}
-                />
-              </>
-            ))}
-            <button
-              type="button"
-              className={`action-button action-button-column ${!listDropdownShow && 'active'}`}
-              onClick={handleToogleDropdown}
-            >
-              kart ekle
-            </button>
+  render() {
+    const { categories, cardList } = this.props;
+    const { columnDropdownShow, listDropdownShow } = this.state;
+    const { handleToogleDropdown, handleColumnToogleDropdown } = this;
+    return (
+      <>
+        <navbar className="navbar">
+          <span className="navbar--span">TODO BOARD</span>
+          <div className="buttons-wrapper">
+            <Button
+              text="sütun ekle"
+              callback={handleColumnToogleDropdown}
+              className={`action-button ${!columnDropdownShow && 'active'}`}
+            />
+            <CategoryAddItem isShow={columnDropdownShow} />
+            <Button
+              text="kart ekle"
+              callback={handleToogleDropdown}
+              className={`action-button ${!listDropdownShow && 'active'}`}
+            />
+            {categories.length > 0 && (
+              <TaskAddItem options={categories} isShow={listDropdownShow} />
+            )}
           </div>
-        ))}
-      </div>
-    </>
-  );
+        </navbar>
+        <div className="board-wrapper">
+          {categories.length > 0 &&
+            categories.map((categoriesItem) => (
+              <div className="board-wrapper__item" key={categoriesItem.id}>
+                <span className="board-wrapper__item--text">
+                  {categoriesItem?.title}
+                </span>
+                {cardList.length > 0 &&
+                  cardList
+                    .filter((item) => item.categoryId === categoriesItem.id)
+                    .map((cardItem) => (
+                      <ListItem
+                        data={cardItem}
+                        key={cardItem.id}
+                        userName="Zerrin-Bostan"
+                      />
+                    ))}
+                <button
+                  type="button"
+                  className={`action-button action-button-column ${
+                    !listDropdownShow && 'active'
+                  }`}
+                  onClick={handleToogleDropdown}
+                >
+                  kart ekle
+                </button>
+              </div>
+            ))}
+        </div>
+      </>
+    );
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    categories: state.todoReducer.categories,
+    cardList: state.todoReducer.cardList,
+  };
 };
 
-export default Home;
+export default connect(mapStateToProps, null)(Home);

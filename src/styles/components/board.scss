@@ -5,7 +5,7 @@
   .board-wrapper__item {
     position: relative;
     width: 350px;
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,13 +13,13 @@
     padding-right: 20px;
     background:  $tuna;
     border: 3px solid $shark;
-
+    padding-bottom: 50px;
+    
     &:not(first-child){
       border-left: none;
     }
     
     &--text {
-      position: absolute;
       width: 100%;
       background: $coral;
       color: $white;
@@ -43,4 +43,3 @@
     }
   }
 }
-

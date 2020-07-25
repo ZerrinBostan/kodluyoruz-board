@@ -1,29 +1,33 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Select from 'react-select';
 import PropTypes from 'prop-types';
 
-const Dropdown = (options = []) => {
-  const [selectedOption, setSelectedOption] = useState(null);
+const Dropdown = ({ options = [], handleDropdownChange, selectedOption }) => {
+
   const handleChange = (selectedOption) => {
-    setSelectedOption(selectedOption);
+    handleDropdownChange(selectedOption);
+  };
+
+  const mapOptions = () => {
+    const newOptions = [...options];
+    return newOptions.map((item) => ({ label: item.title, value: item.id }));
   };
 
   return (
     <Select
       value={selectedOption}
       onChange={handleChange}
-      options={options.options}
+      options={mapOptions()}
     />
   );
 };
 
 Dropdown.propTypes = {
+  selectedOption: PropTypes.func.isRequired,
+  handleDropdownChange: PropTypes.func.isRequired,
   options: PropTypes.arrayOf({
-    options: PropTypes.shape({
-      userId: PropTypes.number,
-      label: PropTypes.string,
-      value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    }).isRequired,
+    userId: PropTypes.number,
+    title: PropTypes.string,
   }).isRequired,
 };
 export default Dropdown;

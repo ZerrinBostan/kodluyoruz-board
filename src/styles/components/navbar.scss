@@ -7,25 +7,63 @@
   padding: 15px;
   top: 0;
   z-index: 1;
-  
+
   &--span {
     font-weight: 700;
     font-size: 25px;
     color: $white;
   }
 
-
   .buttons-wrapper {
+    position: relative;
+    display: flex;
+
     .list-dropdown__content {
-      left: auto;
-      right: 18px;
       margin-top: 19px;
-      width: 262px;
+      width: 270px;
       padding: 15px 18px;
     }
 
     .active {
       background: $coral;
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .navbar {
+    flex-direction: column;
+
+    &--span {
+      font-size: 20px;
+    }
+
+    .button-wrapper {
+      width: 100%;
+    }
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .navbar {
+    flex-direction: column;
+
+    .buttons-wrapper {
+      .action-button {
+        width: 115px;
+      }
+
+      .list-dropdown__content {
+        width: 222px;
+
+        .list-dropdown__context--input {
+          width: 208px;
+        }
+
+        .list-add-content__description {
+          width: 208px;
+        }
+      }
     }
   }
 }
